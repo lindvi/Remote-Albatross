@@ -5,7 +5,12 @@ var request = require('request');
 var twitterData = [];
 
 var status = {
-	twitterdata: false
+	twitterdata: false,
+	queued: 0,
+	sent: 0,
+	completed: 0,
+	success: 0,
+	failed: 0
 };
 
 request('http://www.localhost:3000/twitter_imports.json', function (error, response, body) {
