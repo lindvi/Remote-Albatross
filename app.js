@@ -4,7 +4,7 @@ var request = require('request');
 
 var twitterData = [];
 
-var status = {
+var states = {
 	twitterdata: false,
 	queued: 0,
 	sent: 0,
@@ -13,17 +13,27 @@ var status = {
 	failed: 0
 };
 
-request('http://www.localhost:3000/twitter_imports.json', function (error, response, body) {
+request('http://localhost:3000/tweet_imports.json', function (error, response, body) {
   if (!error && response.statusCode == 200) {
+   	console.log(body);
     twitterData = body;
-    status.twitterdata = true;
+    states.twitterdata = true;
+    startKue();
+  } else {
+  	console.log(error);
+  	console.log(response);
   }
 });
+
+
+function startKue() {
+	
+}
 
 var outputDownload = function status() {
 	console.info('########');
 	console.info(new Date());
-	console.info('TwitterData loaded: ', status.twitterdata);
+	console.info('TwitterData loaded: ', states.twitterdata);
 }
 
 
