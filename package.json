@@ -1,0 +1,14 @@
+{
+  "name": "CATFDK",
+  "private": true,
+  "version": "0.0.1",
+  "main": "./app.js",
+  "dependencies": {
+    "kue": "^0.10.5",
+    "lodash": "^4.11.1",
+    "request": "^2.71.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
